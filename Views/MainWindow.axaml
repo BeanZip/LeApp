@@ -1,0 +1,57 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:LeApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="550"
+        x:Class="LeApp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="LeApp"
+        Width="800" Height="550">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    
+    <Window.Styles>
+        <Style Selector="Button.hoverButton:pointerover">
+            <Setter Property="Background" Value="Gold"/>
+            <Setter Property="Foreground" Value="DarkSlateBlue"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="RenderTransform" Value="scale(1.05)"/>
+        </Style>
+    </Window.Styles>
+    
+    <Panel Background="Purple">
+        <StackPanel>
+            <Border BorderBrush="Yellow" BorderThickness="5" CornerRadius="10" Margin="20" Padding="5" Background="DarkSlateBlue">
+                <TextBlock Text="LeApp" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15" FontSize="60" FontWeight="Bold" FontFamily="JetBrains Mono" Foreground="Gold"/>
+            </Border>
+            <Border Background="DarkSlateBlue" Margin="20" Padding="40" CornerRadius="10" BorderBrush="Yellow" BorderThickness="5">
+                <StackPanel Margin="15">
+                    <Button Classes="hoverButton" 
+                            Content="Press here to hear the king's amazing voice" 
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Center" 
+                            FontSize="23" 
+                            CornerRadius="12" 
+                            Padding="16" 
+                            Foreground="Gold" 
+                            FontFamily="JetBrains Mono NL" 
+                            BorderBrush="Gold"
+                            Background="Transparent">
+                        <Button.Transitions>
+                            <Transitions>
+                                <TransformOperationsTransition Property="RenderTransform" Duration="0.2"/>
+                            </Transitions>
+                        </Button.Transitions>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Panel>
+
+</Window>
