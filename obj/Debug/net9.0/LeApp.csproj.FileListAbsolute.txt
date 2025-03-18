@@ -68,6 +68,3 @@ c:\Users\Brendan\LeApp\obj\Debug\net9.0\ref\LeApp.dll
 C:\Users\Brendan\LeApp\bin\Debug\net9.0\System.Windows.Extensions.dll
 C:\Users\Brendan\LeApp\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Windows.Extensions.dll
 C:\Users\Brendan\LeApp\obj\Debug\net9.0\LeApp.sourcelink.json
-C:\Users\Brendan\LeApp\obj\Debug\net9.0\LeApp.dll
-C:\Users\Brendan\LeApp\obj\Debug\net9.0\refint\LeApp.dll
-C:\Users\Brendan\LeApp\obj\Debug\net9.0\LeApp.pdb

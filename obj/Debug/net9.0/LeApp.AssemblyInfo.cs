@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LeApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3772c0b7fb7847f8930fd79bda4887d6dfc4ccc9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81132601f2c36505c75f11e2efc9209a88759fef")]
 [assembly: System.Reflection.AssemblyProductAttribute("LeApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LeApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
