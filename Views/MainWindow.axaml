@@ -8,7 +8,8 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="LeApp"
-        Width="800" Height="550">
+        Width="800" Height="550"
+        >
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -16,14 +17,29 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     
-    <Panel Background="Purple">
+    <Panel Background="Purple" x:Name="mainPanel">
+        <Menu VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="DarkSlateBlue" BorderBrush="Yellow" BorderThickness="2" Padding="2" Margin="0,0,0,10" FontFamily="JetBrains Mono" FontSize="16" Foreground="Gold">
+            <MenuItem Header="Settings" FontWeight="Bold" Foreground="Gold">
+                <MenuItem Header="Change to light" x:Name="theme" Foreground="Gold" Click="ThemeSwitch">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit" FontWeight="Bold" Foreground="Gold">
+            </MenuItem>
+            <MenuItem Header="Help" FontWeight="Bold" Foreground="Gold" Background="DarkSlateBlue" BackgroundSizing="OuterBorderEdge">
+                <MenuItem Header="About" FontWeight="Bold" Foreground="Gold" BackgroundSizing="OuterBorderEdge"/>
+                <MenuItem Header="Contact" FontWeight="Bold" Foreground="Gold"/>
+                <MenuItem Header="GitHub" FontWeight="Bold" Foreground="Gold"  BackgroundSizing="OuterBorderEdge"/>
+            </MenuItem>
+        </Menu>
         <StackPanel>
-            <Border BorderBrush="Yellow" BorderThickness="5" CornerRadius="10" Margin="20" Padding="5" Background="DarkSlateBlue">
+            <Border BorderBrush="Yellow" BorderThickness="5" CornerRadius="10" Margin="40" Padding="5" Background="DarkSlateBlue">
                 <TextBlock Text="LeApp" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15" FontSize="60" FontWeight="Bold" FontFamily="JetBrains Mono" Foreground="Gold"/>
             </Border>
             <Border Background="DarkSlateBlue" Margin="20" Padding="40" CornerRadius="10" BorderBrush="Yellow" BorderThickness="5">
-                <StackPanel Margin="15">
-
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                    <TextBlock Text="Dunno" FontSize="35" FontWeight="Bold" Foreground="Gold" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Dunno" FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                    <!-- TODO: Add Content for TextBlocks-->
                 </StackPanel>
             </Border>
         </StackPanel>

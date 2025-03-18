@@ -1,6 +1,12 @@
-﻿namespace LeApp.ViewModels;
+﻿using System;
+using System.Threading;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Timers;
 
-public partial class MainWindowViewModel : ViewModelBase
+namespace LeApp.ViewModels;
+
+public partial class MainWindowViewModel : ObservableObject
 {
     public string Greeting { get; } = "Welcome to Avalonia!";
 }
