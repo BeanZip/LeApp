@@ -3,19 +3,49 @@
         xmlns:vm="using:LeApp.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="850"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1050"
         x:Class="LeApp.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="LeApp"
-        Width="800" Height="550"
-        >
+        Width="800" Height="1050">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+
+    <Window.Styles> 
+        <!-- Base button style -->
+        <Style Selector="Button.bronButton">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="23"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="FontFamily" Value="JetBrains Mono"/>
+            <Setter Property="Background" Value="Gold"/>
+            <Setter Property="Foreground" Value="DarkSlateBlue"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+        
+        <!-- Button hover state -->
+        <Style Selector="Button.bronButton:pointerover">
+            <Setter Property="Background" Value="Yellow"/>
+            <Setter Property="Foreground" Value="Purple"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Opacity" Value="0.9"/>
+        </Style>
+        
+        <!-- Button pressed state -->
+        <Style Selector="Button.bronButton:pressed">
+            <Setter Property="Background" Value="DarkGoldenrod"/>
+            <Setter Property="Opacity" Value="0.8"/>
+            <Setter Property="RenderTransform" Value="scale(0.98)"/>
+        </Style>
+    </Window.Styles>
     
     <Panel Background="Purple" x:Name="mainPanel">
         <Menu VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="DarkSlateBlue" BorderBrush="Yellow" BorderThickness="2" Padding="2" Margin="0,0,0,10" FontFamily="JetBrains Mono" FontSize="16" Foreground="Gold">
@@ -28,23 +58,24 @@
             <MenuItem Header="Help" FontWeight="Bold" Foreground="Gold" Background="DarkSlateBlue" BackgroundSizing="OuterBorderEdge">
                 <MenuItem Header="About" FontWeight="Bold" Foreground="Gold" BackgroundSizing="OuterBorderEdge"/>
                 <MenuItem Header="Contact" FontWeight="Bold" Foreground="Gold"/>
-                <MenuItem Header="GitHub" FontWeight="Bold" Foreground="Gold"  BackgroundSizing="OuterBorderEdge"/>
+                <MenuItem Header="GitHub" FontWeight="Bold" Foreground="Gold" BackgroundSizing="OuterBorderEdge"/>
             </MenuItem>
         </Menu>
-        <StackPanel>
+        
+        <StackPanel Margin="0,40,0,0">
             <Border BorderBrush="Yellow" BorderThickness="5" CornerRadius="10" Margin="40" Padding="5" Background="DarkSlateBlue">
-                <TextBlock Text="LeApp" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15" FontSize="60" FontWeight="Bold" FontFamily="JetBrains Mono" Foreground="Gold"/>
+                <TextBlock Text="LeApp" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15" FontSize="80" FontWeight="Bold" FontFamily="Impact" Foreground="Gold" LetterSpacing="20"/>
             </Border>
+            
             <Border Background="DarkSlateBlue" Margin="20" Padding="40" CornerRadius="10" BorderBrush="Yellow" BorderThickness="5">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
                     <TextBlock Text="The King of Basketball" FontSize="40" FontWeight="ExtraBold" Foreground="Gold" HorizontalAlignment="Center"/>
                     <Image Source="/Assets/lebron.jpg" Width="600" Height="400" HorizontalAlignment="Center" Margin="0,10,0,0"/>
-
                     <TextBlock Text="Lebron Raymone James" FontSize="25" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" FontFamily="JetBrains Mono" FontWeight="Bold"/>
-                    <!-- TODO: Add Content for TextBlocks-->
+                    <TextBlock Text="Born: December 30, 1984" FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" FontFamily="JetBrains Mono" FontWeight="Bold"/>
+                    <Button Content="Press Here to Acknowledge the king" Classes="bronButton" Margin="0,20,0,0" x:Name="bronButton"/>
                 </StackPanel>
             </Border>
         </StackPanel>
     </Panel>
-
 </Window>

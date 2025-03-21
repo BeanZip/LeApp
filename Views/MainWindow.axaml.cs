@@ -55,14 +55,12 @@ public partial class MainWindow : Window
             textBlock.Foreground = Brushes.DarkSlateBlue;
         }
         
-        // Only update specific named borders instead of all borders
-        // Or update only visible borders that are part of your content
+        // Update borders
         var contentBorders = this.GetVisualDescendants().OfType<Border>()
             .Where(b => b.Name != null && (b.Name == "headerBorder" || b.Name == "contentBorder" || b.Name.EndsWith("Border")));
             
         if (!contentBorders.Any())
         {
-            // Fallback: if no named borders, try to identify content borders by their properties
             contentBorders = this.GetVisualDescendants().OfType<Border>()
                 .Where(b => b.BorderThickness.Top > 0 && b.IsVisible);
         }
@@ -72,6 +70,9 @@ public partial class MainWindow : Window
             border.Background = Brushes.Gold;
             border.BorderBrush = Brushes.DarkSlateBlue;
         }
+        
+        // Update buttons
+        UpdateButtonsForLightTheme();
         
         // Update Menu items
         UpdateMenuItemsForLightTheme();
@@ -87,14 +88,12 @@ public partial class MainWindow : Window
             textBlock.Foreground = Brushes.Gold;
         }
         
-        // Only update specific named borders instead of all borders
-        // Or update only visible borders that are part of your content
+        // Update borders
         var contentBorders = this.GetVisualDescendants().OfType<Border>()
             .Where(b => b.Name != null && (b.Name == "headerBorder" || b.Name == "contentBorder" || b.Name.EndsWith("Border")));
             
         if (!contentBorders.Any())
         {
-            // Fallback: if no named borders, try to identify content borders by their properties
             contentBorders = this.GetVisualDescendants().OfType<Border>()
                 .Where(b => b.BorderThickness.Top > 0 && b.IsVisible);
         }
@@ -105,8 +104,60 @@ public partial class MainWindow : Window
             border.BorderBrush = Brushes.Yellow;
         }
         
+        // Update buttons
+        UpdateButtonsForDarkTheme();
+        
         // Update Menu items
         UpdateMenuItemsForDarkTheme();
+    }
+    
+    private void UpdateButtonsForLightTheme()
+    {
+        // Find all buttons in the visual tree
+        var buttons = this.GetVisualDescendants().OfType<Button>();
+        
+        foreach (var button in buttons)
+        {
+            // Check if this is a bronButton (by examining Classes)
+            if (button.Classes.Contains("bronButton"))
+            {
+                // Light theme version of bronButton
+                bronButton.Background = Brushes.DarkSlateBlue;
+                bronButton.Foreground = Brushes.Gold;
+                
+                // Optional: You can also modify hover state effects by updating the style
+                // This would require more complex code to modify the style resources
+            }
+            else
+            {
+                // Default button styling for other buttons
+                button.Background = Brushes.White;
+                button.Foreground = Brushes.Black;
+            }
+        }
+    }
+    
+    private void UpdateButtonsForDarkTheme()
+    {
+        // Find all buttons in the visual tree
+        var buttons = this.GetVisualDescendants().OfType<Button>();
+        
+        foreach (var button in buttons)
+        {
+            // Check if this is a bronButton (by examining Classes)
+            if (button.Classes.Contains("bronButton"))
+            {
+                // Dark theme version of bronButton - restore original styling
+                bronButton.Background = Brushes.Gold;
+                bronButton.Foreground = Brushes.DarkSlateBlue;
+            }
+            else
+            {
+                // Default button styling for other buttons
+                button.Background = Brushes.DarkSlateBlue;
+                button.Foreground = Brushes.Gold;
+            }
+        }
     }
     
     private void UpdateMenuItemsForLightTheme()
